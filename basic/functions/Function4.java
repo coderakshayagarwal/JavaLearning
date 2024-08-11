@@ -1,7 +1,7 @@
 package basic.functions;
 
 /*
-Find greatest common divisor
+Fibbonacci Series
 */
 
 import java.util.Scanner;
