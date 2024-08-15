@@ -6,11 +6,9 @@ package basic.recursions;
  * Like in this example, the array is not strictly sorted as it have two 4s in it.
  */
 public class Recursion8 {
-    public static boolean isSorted = true;
-
     public static boolean isSortedArray(int [] array, int index) {
         if (index == array.length) {
-            return isSorted;
+            return true;
         }
         if (array[index] > array[index - 1]) {
             return isSortedArray(array, index + 1);
