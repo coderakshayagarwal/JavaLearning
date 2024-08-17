@@ -3,10 +3,11 @@ package basic.recursions;
 import java.util.HashSet;
 /*
  * Print all the unique subsequences of a string
+ * eg. aaa as String, then the result should be aaa, aa, a
  */
 public class Recursion12 {
 
-    public static void printAllSubSequences(String string, int index, String newString, HashSet<String> set) {
+    public static void printAllUniqueSubSequences(String string, int index, String newString, HashSet<String> set) {
 
         if (string.length() == index) {
 
@@ -17,15 +18,15 @@ public class Recursion12 {
             return;
         }
         // to add in newString
-        printAllSubSequences(string, index + 1, newString + string.charAt(index), set);
+        printAllUniqueSubSequences(string, index + 1, newString + string.charAt(index), set);
 
         // to add in newString
-        printAllSubSequences(string, index + 1, newString, set);
+        printAllUniqueSubSequences(string, index + 1, newString, set);
     }
 
     public static void main(String[] args) {
         String string = "aaa";
-        printAllSubSequences(string, 0, "", new HashSet<String>());
+        printAllUniqueSubSequences(string, 0, "", new HashSet<String>());
     }
     
 }
