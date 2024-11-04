@@ -18,37 +18,66 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 public class RemoveElement {
     public static void main(String[] args) {
-        int nums[] = {0,1,2,2,3,0,4,2};
-        int val = 2;
+        int nums[] = {2};
+        int val = 3;
 
         // Solution
-        int k = 0;
-        for (int i = 0; i < nums.length; i ++) {
-            if (nums[i] == val) {
-                // check the next number it can be replaced with
-                int replaceElementIndex = -1;
-                for (int j = i+1; j < nums.length; j ++) {
-                    if (nums[j] != val) {
-                        replaceElementIndex = j;
-                        break;
-                    }
+        int k = 0; // number of elements
+        int startIndex = 0;
+        int endIndex = nums.length - 1;
+        while (startIndex <= endIndex) {
+            if (nums[startIndex] == val) {
+                if (nums[endIndex] != val) {
+                    // swap
+                    int temp = nums[startIndex];
+                    nums[startIndex] = nums[endIndex];
+                    nums[endIndex] = temp;
+                    // startIndex increase
+                    startIndex ++;
+                    k ++;
                 }
-                if (replaceElementIndex != -1) {
-                    // swap elements
-                    int temp = nums[i];
-                    nums[i] = nums[replaceElementIndex];
-                    nums[replaceElementIndex] = temp;
-                    k++;
-                }
+                endIndex --;
             } else {
                 k++;
+                startIndex ++;
             }
         }
 
         System.out.println("Printing the elements: :k = " + k);
-        for (int i = 0; i < k; i++) {
-            System.out.print(nums[i] + " ");
+        for (int j = 0; j < k; j++) {
+            System.out.print(nums[j] + " ");
         }
         System.out.println();
     }
 }
+/**
+var k =0;
+var num = [0,1,2,2,3,0,4,2,5];
+var val = 2;
+var i = num.length -1;
+ 
+while (k < i) {
+    
+    if (num[k] === val && num[i] !== val) {
+        var random = num[k];
+        num[k] = num[i];
+        num[i] = random;
+        k++;
+        i--;
+    }
+    if (num[k] === val && num[i] === val) {
+        i--;
+    }
+    if (num[k] !== val){
+        k++;
+        console.log('hey1');
+    }
+}
+var setval = k
+if (k > 0) {
+    setval = k-1
+}
+console.log(k);
+//for (var p = 0; p<= setval; p++) {
+    console.log(num);
+ */
